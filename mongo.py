@@ -5,8 +5,8 @@ if os.path.exists("env.py"):
 
 
 MONGO_URI = os.environ.get("MONGO_URI")
-DATABASE = "myfirstDB"
-COLLECTION = "customer"
+DATABASE = "frubbie_drinks"
+COLLECTION = "users"
 
 
 def mongo_connect(url):
@@ -21,14 +21,6 @@ def mongo_connect(url):
 conn = mongo_connect(MONGO_URI)
 
 coll = conn[DATABASE][COLLECTION]
-
-new_doc = ({"first": "david", "last": "Njogu", "dob": "18/03/1987",
-            "hair_color": "brown", "occupation": "singer", "nationality": "italian", })
-
-
-coll.insert_one(new_doc)
-
-documents = conn.find()
 
 
 for doc in documents:
